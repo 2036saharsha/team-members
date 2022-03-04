@@ -3,8 +3,7 @@ import type { Social, Tag, TeamMember } from "@prisma/client";
 
 type QueryCb = (client: PrismaClient) => Promise<void>;
 
-const MAX_TAGS = 15,
-  MAX_SOCIALS = 10;
+const MAX_TAGS = 15, MAX_SOCIALS = 10;
 
 export interface FullTeamMember extends TeamMember {
   socials: Social[];

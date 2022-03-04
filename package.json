@@ -8,24 +8,22 @@
     "dev": "run-script-os",
     "dev:win32": "$DEPLOY=\"develop\"; .\\scripts\\start.ps1",
     "dev:nix": "DEPLOY=develop ./scripts/start.sh",
-
     "docker": "run-script-os",
     "docker:win32": ".\\scripts\\docker.ps1",
     "docker:nix": "./scripts/docker.ps1",
-
     "setup": "run-script-os",
     "setup:win32": ".\\scripts\\setup.ps1",
     "setup:nix": "./scripts/setup.sh",
-
     "start": "run-script-os",
     "start:win32": ".\\scripts\\start.ps1",
     "start:nix": "./scripts/start.sh",
-
     "build": "next build",
     "lint": "next lint"
   },
   "dependencies": {
     "@prisma/client": "^3.10.0",
+    "got": "^12.0.1",
+    "iron-session": "^6.0.5",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
