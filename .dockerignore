@@ -1,0 +1,10 @@
+.next
+.vscode
+docs
+node_modules
+.env.default
+.gitignore
+package-lock.json
+yarn.lock
+README
+tsconfig.tsbuildinfo

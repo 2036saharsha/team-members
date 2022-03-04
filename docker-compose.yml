@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  server:
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - postgres 
+    environment:
+      - DATABASE_URL=postgresql://postgres:my_secret_password@postgres:5432/postgres?schema=team_members
+  postgres:
+    image: postgres:14.2-alpine
+    environment:
+      - POSTGRES_PASSWORD=my_secret_password
