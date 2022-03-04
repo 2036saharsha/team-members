@@ -4,10 +4,10 @@
   "license": "gpl-3.0",
   "author": "SnapIT Solutions <https://snapit.solutions>",
   "scripts": {
-    "dev": "DEPLOY=develop ./scripts/start.sh",
-    "dev-dp": "DEPLOY=develop-db ./scripts/start.sh",
-    "build": "./scripts/build.sh",
+    "dev": "next dev",
+    "build": "next build",
     "start": "./scripts/start.sh",
+    "setup": "./scripts/setup.sh",
     "docker-start": "./scripts/start.sh",
     "lint": "next lint"
   },

@@ -8,6 +8,7 @@ services:
       - postgres 
     environment:
       - DATABASE_URL=postgresql://postgres:my_secret_password@postgres:5432/postgres?schema=team_members
+      - DEPLOY=production
   postgres:
     image: postgres:14.2-alpine
     environment:

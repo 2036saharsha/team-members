@@ -9,4 +9,4 @@ RUN ["npm", "install", "--global", "next", "prisma"]
 RUN ["npm", "install"]
 RUN ["npm", "run", "build"]
 
-CMD ["npm", "run", "docker-start"]
+CMD ["npm", "run", "start"]
