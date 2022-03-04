@@ -1,14 +1,27 @@
 {
   "name": "team-members",
   "version": "0.1.0",
+  "type": "module",
   "license": "gpl-3.0",
   "author": "SnapIT Solutions <https://snapit.solutions>",
   "scripts": {
-    "dev": "next dev",
+    "dev": "run-script-os",
+    "dev:win32": "$DEPLOY=\"develop\"; .\\scripts\\start.ps1",
+    "dev:nix": "DEPLOY=develop ./scripts/start.sh",
+
+    "docker": "run-script-os",
+    "docker:win32": ".\\scripts\\docker.ps1",
+    "docker:nix": "./scripts/docker.ps1",
+
+    "setup": "run-script-os",
+    "setup:win32": ".\\scripts\\setup.ps1",
+    "setup:nix": "./scripts/setup.sh",
+
+    "start": "run-script-os",
+    "start:win32": ".\\scripts\\start.ps1",
+    "start:nix": "./scripts/start.sh",
+
     "build": "next build",
-    "start": "./scripts/start.sh",
-    "setup": "./scripts/setup.sh",
-    "docker-start": "./scripts/start.sh",
     "lint": "next lint"
   },
   "dependencies": {
@@ -23,6 +36,7 @@
     "@types/react": "^17.0.39",
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0",
+    "run-script-os": "^1.1.6",
     "typescript": "^4.6.2"
   }
 }
