@@ -1,5 +1,6 @@
 # Project Specific
 .vscode
+.env
 config.yml
 
 # all my homies hate lock files
