@@ -4,10 +4,10 @@ if [ "$DEPLOY" == "develop" ]; then
   next dev
 elif [ "$DEPLOY" == "develop-db" ]; then
   echo "Starting in $DEPLOY mode."
+  prisma db push
   next dev
-  prisma migrate dev
 else
   echo "Starting in production mode."
-  prisma migrate dev
+  prisma db push
   next start
 fi

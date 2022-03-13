@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:17.5-slim
 
 # Env Setup
 WORKDIR /app

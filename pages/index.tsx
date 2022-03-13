@@ -11,7 +11,7 @@ export const getServerSideProps: GetServerSideProps<MemberProps> = async () => {
 
   return {
     props: { members },
-  }
+  };
 }
 
 const TeamPage = ({ members }: MemberProps) => {
@@ -19,11 +19,13 @@ const TeamPage = ({ members }: MemberProps) => {
   return <div>
     {members.map((member) => {
       i += 1;
-      return <div key={i}>
-        <h1>{member.first} {member.last}</h1>
-        <p>{member.title}</p>
-        <p>Email: {member.username}@snapit.solutions</p>
-      </div>
+      return (
+        <div key={i}>
+          <h1>{member.first} {member.last}</h1>
+          <p>{member.title}</p>
+          <p>Email: {member.username}@snapit.solutions</p>
+        </div>
+      );
     })}
   </div>
 }
