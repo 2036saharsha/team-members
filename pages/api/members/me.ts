@@ -1,6 +1,5 @@
 import { withIronSessionApiRoute } from "iron-session/next";
 import { NextApiRequest, NextApiResponse } from "next";
-import { getConfig } from "../config";
 import { getRoutes, sessionOptions } from "../constants";
 
 async function handler(
