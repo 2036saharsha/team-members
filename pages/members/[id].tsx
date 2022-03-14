@@ -1,29 +1,34 @@
-import { GetServerSideProps } from "next"
-import { FullTeamMember, getFullMember } from "../api/db/index";
-import '../../styles/Member.module.css';
+import { GetServerSideProps } from 'next';
+import { FullTeamMember, getFullMember } from '../api/db/index';
+import TagsDisplay from '@/Components/Tags/TagsDisplay';
+import ProfileBody from '@/Components/ProfileBody/ProfileBody';
+import profilePic from '@/img/male.png';
+import Introduction from '@/Components/Introduction/Introduction';
 
-export const getServerSideProps: GetServerSideProps<FullTeamMember> = async (
-  { params },
-) => {
-  const id = typeof params.id === 'string'
-    ? params.id
-    : params.id[0] || '';
+export const getServerSideProps: GetServerSideProps<FullTeamMember> = async ({
+  params,
+}) => {
+  const id = typeof params.id === 'string' ? params.id : params.id[0] || '';
   const member = await getFullMember(id);
 
   return {
     props: member,
-  }
-}
+  };
+};
 
 const Member = (props: FullTeamMember) => {
-  let i = 0;
-  return <div className="member">
-    <h1>{props.first} {props.last}</h1>
-    {props.tags.map((tag) => {
-      i += 1;
-      return <p key={i}>{tag.tag}</p>
-    })}
-  </div>
-}
+  return (
+    <>
+      <Introduction
+        first={props.first}
+        last={props.last}
+        title={props.title}
+        profilePic={profilePic}
+      />
+      <TagsDisplay tags={props.tags} />
+      <ProfileBody />
+    </>
+  );
+};
 
 export default Member;

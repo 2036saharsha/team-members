@@ -1,12 +1,12 @@
-import { TeamMember } from "@prisma/client";
-import { NextApiRequest, NextApiResponse } from "next";
-import { getMembers } from "./db";
+import { TeamMember } from '@prisma/client';
+import { NextApiRequest, NextApiResponse } from 'next';
+import { getMembers } from './db';
 
-type Data = TeamMember[]
+type Data = TeamMember[];
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data>,
 ): Promise<void> {
   const members = await getMembers();
   res.status(200);

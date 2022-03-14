@@ -1,5 +1,5 @@
-import { PrismaClient } from "@prisma/client";
-import type { Social, Tag, TeamMember } from "@prisma/client";
+import { PrismaClient } from '@prisma/client';
+import type { Social, Tag, TeamMember } from '@prisma/client';
 
 type QueryCb = (client: PrismaClient) => Promise<void>;
 
@@ -8,7 +8,7 @@ const MAX_TAGS = 15,
 
 export interface FullTeamMember extends TeamMember {
   socials: Social[];
-  tags: Tag[]
+  tags: Tag[];
 }
 
 async function query(cb: QueryCb): Promise<void> {
@@ -49,7 +49,9 @@ export async function getFullMembers(): Promise<FullTeamMember[]> {
   const allSocials = await Promise.all(socsPromises);
 
   return members.map((member) => {
-    const socials = allSocials.filter((social) => social.username === member.username);
+    const socials = allSocials.filter(
+      (social) => social.username === member.username,
+    );
     const tags = allTags.filter((tag) => tag.username === member.username);
 
     return {
@@ -57,19 +59,19 @@ export async function getFullMembers(): Promise<FullTeamMember[]> {
       tags,
       socials,
     };
-  })
+  });
 }
 
 export function getMember(username: string): Promise<TeamMember> {
   return new Promise((res, rej) => {
-    if (process.env.DEPLOY === "develop") {
+    if (process.env.DEPLOY === 'develop') {
       res({
-        bio: "A programmer",
-        first: "Dylan",
-        last: "Hackworth",
-        title: "Junior Instructor",
-        type: "programmer",
-        username: "dylhack",
+        bio: 'A programmer',
+        first: 'Dylan',
+        last: 'Hackworth',
+        title: 'Junior Instructor',
+        type: 'programmer',
+        username: 'dylhack',
       });
       return;
     }
@@ -91,39 +93,39 @@ export function getMember(username: string): Promise<TeamMember> {
 
 export function getMembers(): Promise<TeamMember[]> {
   return new Promise((res, rej) => {
-    if (process.env.DEPLOY === "develop") {
+    if (process.env.DEPLOY === 'develop') {
       res([
         {
-          bio: "A programmer",
-          first: "Dylan",
-          last: "Hackworth",
-          title: "Junior Instructor",
-          type: "programmer",
-          username: "dylhack",
+          bio: 'A programmer',
+          first: 'Dylan',
+          last: 'Hackworth',
+          title: 'Junior Instructor',
+          type: 'programmer',
+          username: 'dylhack',
         },
         {
-          bio: "A programmer",
-          first: "Lok",
-          last: "Shankar",
-          title: "Really Good Programmer",
-          type: "programmer",
-          username: "lok",
+          bio: 'A programmer',
+          first: 'Lok',
+          last: 'Shankar',
+          title: 'Really Good Programmer',
+          type: 'programmer',
+          username: 'lok',
         },
         {
-          bio: "A programmer",
-          first: "Carlo",
-          last: "Santos",
-          title: "Instructor",
-          type: "programmer",
-          username: "carlo",
+          bio: 'A programmer',
+          first: 'Carlo',
+          last: 'Santos',
+          title: 'Instructor',
+          type: 'programmer',
+          username: 'carlo',
         },
         {
-          bio: "A programmer",
-          first: "Saharsha",
-          last: "Tiwari",
-          title: "Epic Web Dev",
-          type: "programmer",
-          username: "2036saharsha",
+          bio: 'A programmer',
+          first: 'Saharsha',
+          last: 'Tiwari',
+          title: 'Epic Web Dev',
+          type: 'programmer',
+          username: '2036saharsha',
         },
       ]);
       return;
@@ -142,21 +144,21 @@ export function getMembers(): Promise<TeamMember[]> {
 
 export function getSocials(member: TeamMember): Promise<Social[]> {
   return new Promise((res, rej) => {
-    if (process.env.DEPLOY === "develop") {
+    if (process.env.DEPLOY === 'develop') {
       res([
         {
           id: 1,
-          name: "dylhack",
-          service: "GitHub",
-          url: "https://github.com/dylhack",
-          username: "dylhack",
+          name: 'dylhack',
+          service: 'GitHub',
+          url: 'https://github.com/dylhack',
+          username: 'dylhack',
         },
         {
           id: 2,
-          name: "dylhack",
-          service: "Twitter",
-          url: "https://twitter.com/dylhack",
-          username: "dylhack",
+          name: 'dylhack',
+          service: 'Twitter',
+          url: 'https://twitter.com/dylhack',
+          username: 'dylhack',
         },
       ]);
       return;
@@ -179,22 +181,22 @@ export function getSocials(member: TeamMember): Promise<Social[]> {
 
 export function getTags(member: TeamMember): Promise<Tag[]> {
   return new Promise((res, rej) => {
-    if (process.env.DEPLOY === "develop") {
+    if (process.env.DEPLOY === 'develop') {
       res([
         {
           id: 1,
-          tag: "web dev",
-          username: "dylhack",
+          tag: 'web dev',
+          username: 'dylhack',
         },
         {
           id: 2,
-          tag: "dog lover",
-          username: "dylhack",
+          tag: 'dog lover',
+          username: 'dylhack',
         },
         {
           id: 3,
-          tag: "biker",
-          username: "dylhack",
+          tag: 'biker',
+          username: 'dylhack',
         },
       ]);
       return;
@@ -219,7 +221,7 @@ export function addSocial(
   member: TeamMember,
   url: string,
   name: string,
-  service: string
+  service: string,
 ): Promise<void> {
   return new Promise((res, rej) => {
     query(async (client: PrismaClient) => {
@@ -230,13 +232,13 @@ export function addSocial(
         });
         if (includes) {
           const err = new Error(
-            `This social is already added to ${member.username}`
+            `This social is already added to ${member.username}`,
           );
           rej(err);
           return;
         } else if (socials.length === MAX_TAGS) {
           const err = new Error(
-            `${member.username} has met the max socials of ${MAX_SOCIALS}`
+            `${member.username} has met the max socials of ${MAX_SOCIALS}`,
           );
           rej(err);
           return;
@@ -283,13 +285,13 @@ export function addTag(member: TeamMember, tag: string): Promise<void> {
         const includes = tags.some((x: Tag) => x.tag === tag);
         if (includes) {
           const err = new Error(
-            `The tag "${tag}" already exists for "${member.username}"`
+            `The tag "${tag}" already exists for "${member.username}"`,
           );
           rej(err);
           return;
         } else if (tags.length === MAX_TAGS) {
           const err = new Error(
-            `${member.username} has met the max tags of ${MAX_TAGS}`
+            `${member.username} has met the max tags of ${MAX_TAGS}`,
           );
           rej(err);
           return;

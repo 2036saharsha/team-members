@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap');
+.introduction {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  width: 100%;
+  font-family: var(--primary-font);
+}
+.profile_container {
+  position: relative !important;
+  margin: auto 0;
+}
+.profile_image_container {
+  position: absolute !important;
+  width: 388px !important;
+  height: 388px !important;
+  top: 10px;
+  right: 0;
+  background-color: #d1d7dc;
+  border: 1px solid #000000af;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.profile_image {
+  height: 73% !important;
+  width: auto !important;
+  margin-top: 0 !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+}
+
+.profile_image_shadow {
+  width: 388px;
+  height: 388px;
+  margin-top: 8%;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 1px solid #000000af;
+  background-color: var(--green);
+}
+.description {
+  width: 100%;
+  max-width: 650px;
+}
+
+.name {
+  font-size: 4.5rem;
+  margin-bottom: 0;
+  font-weight: 700;
+  text-shadow: var(--stroke);
+  color: #21243d;
+}
+.title {
+  font-size: 3.5rem;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 600;
+  text-shadow: var(--stroke);
+  color: var(--green);
+}
+.bio {
+  font-size: 1.5rem;
+  margin: 0 0 30px 0;
+}
+
+.download_resume {
+  background-color: var(--green);
+  padding: 15px;
+  border: 0.5px solid black;
+  border-radius: 10px;
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+  text-shadow: var(--stroke);
+  cursor: pointer;
+}
+
+.social_links_group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 550px;
+}
+.social_links {
+  font-size: 75px;
+  fill: var(--green);
+  cursor: pointer;
+}
+
+.social_links:active,
+.download_resume:active {
+  background-color: var(--green-clicked);
+  fill: var(--green-clicked);
+}
+.social_links path {
+  stroke: rgba(0, 0, 0, 0.883);
+  stroke-width: 7px;
+}

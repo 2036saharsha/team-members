@@ -1,0 +1,53 @@
+.tags {
+  position: relative;
+  background-color: var(--green);
+  margin: 30px 0;
+  height: 71px;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  overflow: hidden;
+}
+.tags_slider {
+  position: absolute;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  width: fit-content;
+  /* animation: slideRightToLeft 10s infinite;
+  animation-timing-function: linear; */
+}
+.tag {
+  padding: 7px 5px;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid;
+}
+.javascript {
+  border-color: #f5de19;
+}
+
+.react {
+  border-color: #61dafb;
+}
+.nodejs {
+  border-color: #84bb00;
+}
+
+.github {
+  border-color: #bb01cc;
+}
+.gitlab {
+  border-color: #882819;
+}
+
+/* @keyframes slideRightToLeft {
+  0% {
+    left: 100%;
+  }
+  50% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+} */

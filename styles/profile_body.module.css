@@ -1,0 +1,40 @@
+.priofile_body {
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.profile_body_main {
+  width: 100%;
+}
+.profile_body_main_cards {
+  padding: 2rem 1rem;
+  margin: 5px 0;
+  text-align: center;
+  width: 100%;
+  max-width: 871px;
+}
+.profile_body_cards {
+  background-color: #f3f3f3;
+}
+.section_title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-style: bold;
+  color: var(--green);
+  text-shadow: var(--stroke);
+}
+
+.sidebar {
+  width: 100%;
+  max-width: 391px;
+  gap: 5px;
+  padding: 5px 0;
+}
+
+.sidebar_projects {
+}
+
+.sidebar_languages {
+}
+.sidebar_frameworks {
+}
